@@ -7,14 +7,17 @@ from typing import Optional, Annotated
 class UserBase(BaseModel):
     email: str
     password: str
+    phone_number: Optional[str] = None
 
 class UserCreate(BaseModel):   
     email: EmailStr
     password: str
+    phone_number: Optional[str] = None
 
 class UserOut(BaseModel):
     id: int
     email: EmailStr
+    phone_number: Optional[str] = None
     created_at: datetime
     class Config:
         #orm_mode = True # this code brings columns of relationship
