@@ -19,7 +19,7 @@ class UserOut(BaseModel):
     email: EmailStr
     phone_number: Optional[str] = None
     created_at: datetime
-    class Config:
+    class ConfigDict:
         #orm_mode = True # this code brings columns of relationship
         from_attributes = True
 
@@ -55,7 +55,7 @@ class Post(PostBase):
     #owner_id: int   
     owner: UserOut
     
-    class Config:
+    class ConfigDict:
         from_attributes = True
 
 class Vote(BaseModel):
@@ -66,5 +66,5 @@ class PostOut(BaseModel):
     Post: Post
     votes: int
 
-    class Config:
+    class ConfigDict:
         from_attributes = True
